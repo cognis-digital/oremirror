@@ -1,0 +1,5 @@
+# oremirror demo image list (YAML form) — same two images as images.txt.
+# `oremirror` understands a top-level `images:` block of scalar refs.
+images:
+  - alpine:v3.20
+  - nginx:1.27
