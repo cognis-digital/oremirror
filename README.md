@@ -19,6 +19,30 @@ registry on the far side.
 Standard library only — `urllib`, `json`, `hashlib`, `os`. No pip dependencies,
 no daemon, no external CLIs to shell out to.
 
+## Usage — step by step
+
+1. **Install** from source (Python 3.9+):
+   ```bash
+   pip install .
+   ```
+2. **Plan** a transfer — resolve an image list into a concrete transfer plan:
+   ```bash
+   oremirror plan images.txt --format json --out plan.json
+   ```
+3. **Pull** the resolved images into an OCI image-layout directory:
+   ```bash
+   oremirror pull images.txt -o ./oci-layout
+   ```
+4. **Verify** the layout on the air-gapped side (recompute digests, confirm integrity):
+   ```bash
+   oremirror verify ./oci-layout --format json
+   ```
+5. **Push / automate** the layout to the destination registry (dry-run first in CI):
+   ```bash
+   oremirror push ./oci-layout --dest registry.internal:5000 --dry-run
+   ```
+   Also: `oremirror mcp` (MCP stdio server).
+
 ## Why
 
 Air-gapped and egress-limited environments (regulated networks, secure
