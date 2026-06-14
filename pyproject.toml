@@ -34,3 +34,6 @@ oremirror = "oremirror.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["oremirror"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
