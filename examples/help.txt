@@ -1,0 +1,18 @@
+$ oremirror-emit --help
+
+usage: oremirror [-h] [--version] {plan,pull,verify,push,mcp} ...
+
+OCI registry mirror/sync for disconnected environments — plan, pull to an OCI
+layout, verify, and push across the air-gap.
+
+positional arguments:
+  {plan,pull,verify,push,mcp}
+    plan                Resolve images to a transfer plan.
+    pull                Download images into an OCI image-layout dir.
+    verify              Recompute digests; confirm a layout is intact.
+    push                Upload an OCI layout to a destination registry.
+    mcp                 Run as an MCP server (stdio JSON-RPC).
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit

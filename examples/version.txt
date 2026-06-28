@@ -1,0 +1,3 @@
+$ oremirror-emit --version
+
+oremirror 0.1.0

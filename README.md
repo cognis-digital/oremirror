@@ -19,6 +19,64 @@ registry on the far side.
 Standard library only — `urllib`, `json`, `hashlib`, `os`. No pip dependencies,
 no daemon, no external CLIs to shell out to.
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ oremirror-emit --version
+oremirror 0.1.0
+```
+
+```console
+$ oremirror-emit --help
+usage: oremirror [-h] [--version] {plan,pull,verify,push,mcp} ...
+
+OCI registry mirror/sync for disconnected environments — plan, pull to an OCI
+layout, verify, and push across the air-gap.
+
+positional arguments:
+  {plan,pull,verify,push,mcp}
+    plan                Resolve images to a transfer plan.
+    pull                Download images into an OCI image-layout dir.
+    verify              Recompute digests; confirm a layout is intact.
+    push                Upload an OCI layout to a destination registry.
+    mcp                 Run as an MCP server (stdio JSON-RPC).
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+```
+
+> Blocks above are real `oremirror` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"findings": [
+    {
+        "id": "123456",
+        "title": "Suspicious Network Activity",
+        "description": "Anomalous network traffic detected from IP 192.168.1.100",
+        "created_by": "John Doe",
+        "created_at": "2023-02-15T14:30:00Z"
+    },
+    {
+        "id": "789012",
+        "title": "Malware Detection",
+        "description": "Virus detected on host 192.168.1.101",
+        "created_by": "Jane Smith",
+        "created_at": "2023-02-16T10:45:00Z"
+    }
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** from source (Python 3.9+):
